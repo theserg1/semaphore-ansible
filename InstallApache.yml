@@ -1,0 +1,13 @@
+---
+- name: Install Apache2 on Ubuntu/Debian
+  hosts: all
+  become: yes # To run tasks as a superuser (root)
+  tasks :
+  - name: Update apt cache
+  apt :
+  update cache: yes
+
+  - name: Install apache2
+  apt:
+  name: apache2
+  state: present
